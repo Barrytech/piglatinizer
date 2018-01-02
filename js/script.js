@@ -5,8 +5,16 @@
 // CREATE THE FUNCTIONS BELOW
 
 // Document Ready Function. All of your jQuery should go in here. 
+/*global $*/
 $( document ).ready(function() {
-  
+$("#hit").click(function(){
+    var entry=$("input").val();
+    console.log(entry);
+    var anast= ay(entry);
+      $("#message").text(anast);
+    
+});
+
 
 
 
@@ -14,6 +22,10 @@ $( document ).ready(function() {
 
 
 // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
+
+function anast(word){
+ return word + "ay";    
+}  
 
 
 
