@@ -5,35 +5,51 @@
 // CREATE THE FUNCTIONS BELOW
 
 // Document Ready Function. All of your jQuery should go in here. 
+
 /*global $*/
-$( document ).ready(function() {
-$("#hit").click(function(){
-    var entry=$("input").val();
-    console.log(entry);
-    var anast= ay(entry);
-      $("#message").text(anast);
-    
+
+$(document).ready(function() {
+
+
+            
+            function wordToPigLatin(word) {
+             
+                var consf= word.slice(0,1);
+                var rest= word.slice(1, word.length);
+                console.log(rest);
+                console.log(consf);
+                
+                
+               if ((consf === "i") || (consf === "e") || (consf === "a") || (consf === "u") || (consf === "o")) {
+                        $("#message").append( word + "ay");
+                 }
+                    else if ((consf =! "i") || (consf =! "e") || (consf =! "a") || (consf =! "u") || (consf =! "o")) {
+                          $("#message").append( rest+ consf + "ay");
+                      
+                    }
+                   
+                    else {
+                        alert("none");
+                    }
+                
+             }
+
+
+            // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
+            // Create the sentenceToPigLatin function that takes a sentence as a parameter
+            //Loops through all the words in the sentence and transforms each word
+            //It should return a transfromed sentance
+            function sentenceToPlaglatin(word) {
+                 var sentences = word.split(" ");
+                
+              for (var i = 0; i < sentences.length; i++) {
+                        $("#message").append(wordToPigLatin(sentences[i]));
+                    }  
+            }
+
+            $("#hit").click(function() {
+                var word = $("#typed").val();
+                sentenceToPlaglatin(word);
+            });
+
 });
-
-
-
-
-});
-
-
-// Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
-
-function anast(word){
- return word + "ay";    
-}  
-
-
-
-
-
-
-// Create the sentenceToPigLatin function that takes a sentence as a parameter
-	//Loops through all the words in the sentence and transforms each word
-	//It should return a transfromed sentance
-
-
