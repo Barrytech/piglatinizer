@@ -11,45 +11,66 @@
 $(document).ready(function() {
 
 
-            
-            function wordToPigLatin(word) {
-             
-                var consf= word.slice(0,1);
-                var rest= word.slice(1, word.length);
-                console.log(rest);
-                console.log(consf);
-                
-                
-               if ((consf === "i") || (consf === "e") || (consf === "a") || (consf === "u") || (consf === "o")) {
-                        $("#message").append( word + "ay");
-                 }
-                    else if ((consf =! "i") || (consf =! "e") || (consf =! "a") || (consf =! "u") || (consf =! "o")) {
-                          $("#message").append( rest+ consf + "ay");
-                      
-                    }
-                   
-                    else {
-                        alert("none");
-                    }
-                
-             }
+
+    function wordToPigLatin(word) {
+        var consf = word.slice(0, 1);
+        var sec= word.slice(0,2);
+        var secrest= word.slice(2, word.length);
+        var rest = word.slice(1, word.length);
+        console.log(rest);
+        console.log(consf);
 
 
-            // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
-            // Create the sentenceToPigLatin function that takes a sentence as a parameter
-            //Loops through all the words in the sentence and transforms each word
-            //It should return a transfromed sentance
-            function sentenceToPlaglatin(word) {
-                 var sentences = word.split(" ");
-                
-              for (var i = 0; i < sentences.length; i++) {
-                        $("#message").append(wordToPigLatin(sentences[i]));
-                    }  
-            }
+        if ((consf === "i") || (consf === "e") || (consf === "a") || (consf === "u") || (consf === "o")) {
 
-            $("#hit").click(function() {
-                var word = $("#typed").val();
-                sentenceToPlaglatin(word);
-            });
+            console.log(word + "ay");
+           return (word + "ay");
+        }
+        else if ((consf != "i") || (consf != "e") || (consf != "a") || (consf != "u") || (consf != "o")) {
+           return (rest + consf + "ay");
 
-});
+        }
+
+        else {
+            alert("none");
+        }
+
+    }
+    
+    var vowells =[ "a", "i", "u","e", "o"];
+    for (var i= 0; i< vowells.length; i++){
+        return [i];
+    
+    }
+
+ if ((consf != vowells[i]  & sec != vowells[i]) || (consf != vowells[i] & sec != vowells[i]) || (consf != vowells[i] & sec != vowells[i]) || (consf != vowells[i] & sec != vowells[i]) || (consf != vowells[i] & sec != vowells[i])) {
+
+          
+           return ( secrest + "ay");
+        }
+        else {
+            alert("none");
+        }
+
+    });
+
+    // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
+    // Create the sentenceToPigLatin function that takes a sentence as a parameter
+    //Loops through all the words in the sentence and transforms each word
+    //It should return a transfromed sentance
+    function sentenceToPlaglatin(word) {
+        var sentences = word.split(" ");
+
+        for (var i = 0; i < sentences.length; i++) {
+            $("#message").append(wordToPigLatin(sentences[i]) + " ");
+        }
+    }
+
+    $("#hit").click(function() {
+        var word = $("#typed").val();
+        sentenceToPlaglatin(word);
+    });
+        
+});    
+
+
