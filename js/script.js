@@ -9,50 +9,54 @@
 /*global $*/
 
 $(document).ready(function() {
-
-
+    
 
     function wordToPigLatin(word) {
         var consf = word.slice(0, 1);
-        var sec= word.slice(0,2);
-        var secrest= word.slice(2, word.length);
+        var sec = word.slice(1, 2);
+        var secrest = word.slice(2, word.length);
         var rest = word.slice(1, word.length);
         console.log(rest);
         console.log(consf);
 
 
         if ((consf === "i") || (consf === "e") || (consf === "a") || (consf === "u") || (consf === "o")) {
-
-            console.log(word + "ay");
-           return (word + "ay");
-        }
-        else if ((consf != "i") || (consf != "e") || (consf != "a") || (consf != "u") || (consf != "o")) {
-           return (rest + consf + "ay");
-
-        }
-
-        else {
-            alert("none");
-        }
-
-    }
-    
-    var vowells =[ "a", "i", "u","e", "o"];
-    for (var i= 0; i< vowells.length; i++){
-        return [i];
-    
-    }
-
- if ((consf != vowells[i]  & sec != vowells[i]) || (consf != vowells[i] & sec != vowells[i]) || (consf != vowells[i] & sec != vowells[i]) || (consf != vowells[i] & sec != vowells[i]) || (consf != vowells[i] & sec != vowells[i])) {
-
-          
-           return ( secrest + "ay");
+            return (word + "ay");
         }
         else {
+            if (sec != "i" && sec != "a" && sec != "e" && sec != "o" && sec != "u") {
+                return secrest+word.slice(0,2)+'ay';    
+            } else {
+                return (rest + consf + "ay");
+            }
+        }
+    }
+
+
+    // For double consonents
+
+    function doubleconsonant(word) {
+        var word = $("#typed").val();
+        var secrest = word.slice(2, word.length);
+        var consf = word.slice(0, 1);
+        var sec = word.slice(1, 2);
+        var vowells = ["a", "i", "u", "e", "o"];
+
+        var bothConsonants = false;
+        
+        for (var i = 0; i < vowells.length; i++) {
+            if(consf != vowells[i] && sec != vowells[i]) {
+                bothConsonants = true;
+            }
+        }
+        
+        if(bothConsonants == true) {
+            return secrest+'ay';    
+        } else {
             alert("none");
         }
+    }
 
-    });
 
     // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
     // Create the sentenceToPigLatin function that takes a sentence as a parameter
@@ -64,13 +68,12 @@ $(document).ready(function() {
         for (var i = 0; i < sentences.length; i++) {
             $("#message").append(wordToPigLatin(sentences[i]) + " ");
         }
-    }
 
+    }
+    
     $("#hit").click(function() {
         var word = $("#typed").val();
         sentenceToPlaglatin(word);
     });
-        
-});    
 
-
+});
