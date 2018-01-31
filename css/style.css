@@ -19,8 +19,6 @@ body{
     background-image: url("http://www.cosmotography.com/images/close_new_m101.jpg");
 }
 #message{
-     width: 1100px;
-     height:500px;
      border:solid;
-    
+    height: 400px;
 }
