@@ -34,7 +34,7 @@ $(document).ready(function() {
 
 
     // For double consonents
-
+/*
     function doubleconsonant(word) {
         var word = $("#typed").val();
         var secrest = word.slice(2, word.length);
@@ -56,7 +56,7 @@ $(document).ready(function() {
             alert("none");
         }
     }
-
+*/
 
     // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
     // Create the sentenceToPigLatin function that takes a sentence as a parameter
